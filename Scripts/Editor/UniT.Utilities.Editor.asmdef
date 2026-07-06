@@ -1,5 +1,6 @@
 {
   "name": "UniT.Utilities.Editor",
+  "overrideReferences": true,
   "includePlatforms": [
     "Editor"
   ]
