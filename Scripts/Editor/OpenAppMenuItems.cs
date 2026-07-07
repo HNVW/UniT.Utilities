@@ -8,17 +8,17 @@ namespace UniT.Utilities.Editor
 
     internal static class OpenAppMenuItems
     {
-        private const string ROOT_PATH               = "Assets/UniT/";
+        private const string ROOT_PATH = "Assets/UniT/";
         private const string OPEN_TERMINAL_HERE_PATH = ROOT_PATH + "Open Terminal Here";
-        private const string OPEN_LAZYGIT_PATH       = ROOT_PATH + "Open LazyGit";
-        private const string OPEN_OPENCODE_PATH      = ROOT_PATH + "Open OpenCode";
+        private const string OPEN_LAZYGIT_PATH = ROOT_PATH + "Open LazyGit";
+        private const string OPEN_OPENCODE_PATH = ROOT_PATH + "Open OpenCode";
 
-        #if UNITY_EDITOR_LINUX
+#if UNITY_EDITOR_LINUX
         private const string TERMINAL = "xdg-terminal-exec";
-        #else
+#else
         private const string TERMINAL = "alacritty";
-        #endif
-        private const string LAZYGIT  = "lazygit";
+#endif
+        private const string LAZYGIT = "lazygit";
         private const string OPENCODE = "opencode";
 
         [MenuItem(OPEN_TERMINAL_HERE_PATH, priority = 1000)]
@@ -26,7 +26,7 @@ namespace UniT.Utilities.Editor
         {
             Process.Start(new ProcessStartInfo
             {
-                FileName         = TERMINAL,
+                FileName = TERMINAL,
                 WorkingDirectory = GetSelectedFolder(),
             });
         }
@@ -36,7 +36,7 @@ namespace UniT.Utilities.Editor
         {
             Process.Start(new ProcessStartInfo
             {
-                FileName  = TERMINAL,
+                FileName = TERMINAL,
                 Arguments = $"-e {LAZYGIT}",
             });
         }
@@ -46,7 +46,7 @@ namespace UniT.Utilities.Editor
         {
             Process.Start(new ProcessStartInfo
             {
-                FileName  = TERMINAL,
+                FileName = TERMINAL,
                 Arguments = $"-e {OPENCODE}",
             });
         }
@@ -67,7 +67,7 @@ namespace UniT.Utilities.Editor
             if (AppExistCache.TryGetValue(name, out var exist)) return exist;
             using var process = Process.Start(new ProcessStartInfo
             {
-                FileName  = "which",
+                FileName = "which",
                 Arguments = name,
             })!;
             process.WaitForExit();

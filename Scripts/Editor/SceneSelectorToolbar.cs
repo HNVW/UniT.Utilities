@@ -18,9 +18,9 @@ namespace UniT.Utilities.Editor
         {
             ScenePaths = Directory.GetFiles("Assets", "*.unity", SearchOption.AllDirectories);
 
-            EditorApplication.projectChanged                += OnProjectChanged;
-            EditorApplication.playModeStateChanged          += OnPlayModeStateChanged;
-            SceneManager.activeSceneChanged                 += OnSceneChanged;
+            EditorApplication.projectChanged += OnProjectChanged;
+            EditorApplication.playModeStateChanged += OnPlayModeStateChanged;
+            SceneManager.activeSceneChanged += OnSceneChanged;
             EditorSceneManager.activeSceneChangedInEditMode += OnSceneChanged;
         }
 
@@ -28,7 +28,7 @@ namespace UniT.Utilities.Editor
         private static MainToolbarElement CreateSceneSelectorDropdown()
         {
             var currentScene = SceneManager.GetActiveScene().name;
-            var icon         = (Texture2D)EditorGUIUtility.IconContent("UnityLogo").image;
+            var icon = (Texture2D)EditorGUIUtility.IconContent("UnityLogo").image;
             return Application.isPlaying || ScenePaths.Length == 0
                 ? new MainToolbarLabel(new(currentScene, icon, "Select active scene"))
                 : new MainToolbarDropdown(new(currentScene, icon, "Select active scene"), dropDownRect =>

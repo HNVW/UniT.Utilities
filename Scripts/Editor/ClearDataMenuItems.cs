@@ -7,10 +7,10 @@ namespace UniT.Utilities.Editor
 
     internal static class ClearDataMenuItems
     {
-        private const string ROOT_PATH                  = "Edit/";
+        private const string ROOT_PATH = "Edit/";
         private const string CLEAR_PERSISTENT_DATA_PATH = "Clear PersistentDataPath";
         private const string CLEAR_TEMPORARY_CACHE_PATH = "Clear TemporaryCachePath";
-        private const string CLEAR_EVERYTHING           = "Clear Everything";
+        private const string CLEAR_EVERYTHING = "Clear Everything";
 
         private static readonly string PersistentDataPath = Application.persistentDataPath;
         private static readonly string TemporaryCachePath = Application.temporaryCachePath;
