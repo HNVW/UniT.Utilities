@@ -5,6 +5,7 @@ namespace UniT.Utilities.Editor
     using System.Diagnostics;
     using System.IO;
     using UnityEditor;
+    using UnityEngine;
 
     internal static class OpenAppMenuItems
     {
@@ -13,11 +14,7 @@ namespace UniT.Utilities.Editor
         private const string OPEN_LAZYGIT_PATH = ROOT_PATH + "Open LazyGit";
         private const string OPEN_OPENCODE_PATH = ROOT_PATH + "Open OpenCode";
 
-#if UNITY_EDITOR_LINUX
-        private const string TERMINAL = "xdg-terminal-exec";
-#else
-        private const string TERMINAL = "alacritty";
-#endif
+        private static readonly string TERMINAL = Application.platform is RuntimePlatform.LinuxEditor ? "xdg-terminal-exec" : "alacritty";
         private const string LAZYGIT = "lazygit";
         private const string OPENCODE = "opencode";
 
